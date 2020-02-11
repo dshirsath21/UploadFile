@@ -10,7 +10,9 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 
-
+class UploadFile {
+	
+public static void putFile () {
 String HostName = "localhost:8080/xyz";
 String UserName = "test";
 String Password = "test";
@@ -33,10 +35,12 @@ File localFileToUpload = new File(localFile);
 Response response = null;
 
 try {
-			response = (Response) given().multiPart(localFileToUpload).when().put(remoteFile);
-		} catch (Exception err) {
-			err.printStackTrace();
-		}
+      response = (Response) given().multiPart(localFileToUpload).when().put(remoteFile);
+    } catch (Exception err) {
+		err.printStackTrace();
+    }
 
 System.out.println(response.getStatusCode());
 System.out.println(response.asString())
+}
+}
